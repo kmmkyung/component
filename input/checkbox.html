@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      body {
+        background-color: #1E314F;
+        color: #fff;
+        display: flex;
+        width: 50vw;
+        justify-content: space-evenly;
+      }
+      
+      #toggleWrap_1 .checkInput,
+      #toggleWrap_2 .checkInput{
+        display: none;
+      }
+      
+      #toggleWrap_1 .checkLabel{
+        cursor: pointer;
+        display: block;
+        width: 90px;
+        height: 50px;
+        background-color: #83D8FF;
+        border-radius: 90px;
+        transition: .5s;
+      }
+
+      #toggleWrap_1 .checkLabel-handler{
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0,0,0,.3);
+        transition: .5s;
+      }
+      
+      #toggleWrap_1 .checkInput:checked + .checkLabel{
+        background-color: #cbee1a;
+      }
+      
+      #toggleWrap_1 .checkInput:checked + .checkLabel .checkLabel-handler{
+        transform: translateY(-50%) translateX(40px);
+      }
+      
+      #toggleWrap_2 .checkLabel{
+        display: block;
+        width: 90px;
+        height: 50px;
+        background: #eee;
+        cursor: pointer;
+        border-radius: 90px;
+        position: relative;
+        box-sizing: border-box;
+        border: 4px solid #f5f5f5;
+        box-shadow: inset 1px 1px 0 1px #aaa;
+        
+      }
+
+      /* 배경 */
+      #toggleWrap_2 .checkLabel::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(330deg, #5b0eeb 0%, #6d5dfc 50%, #8abdff 100%);
+        box-shadow: inset 1px 1px 0px 1px #aaa;
+        opacity: 0;
+        transition: all 2s ease;
+      }
+
+      /* 토글버튼 */
+      #toggleWrap_2 label::after{
+        content: "KO";
+        color: #aaa;
+        text-align: center;
+        line-height: 40px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ddd;
+        box-shadow: inset 0px 1px 0.5px 0.5px #fff, 1px 1px 1px 0 #282828;
+        top: 1px;
+        left: 0;
+        transition: .4s ease;
+      }
+
+      #toggleWrap_2 input:checked ~ label::before{
+        opacity: 1;
+      }
+
+      #toggleWrap_2 input:checked ~ label::after{
+        left: 50%;
+        background: #f5f5f5;
+        content: "EN";
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="toggleWrap_1">
+      <input type="checkbox" id="check" class="checkInput"/>
+      <label for="check" class="checkLabel">
+        <span class="checkLabel-handler"></span>
+      </label>
+    </div>
+    <div id="toggleWrap_2">
+      <input type="checkbox" id="check2" class="checkInput"/>
+      <label for="check2" class="checkLabel">
+      </label>
+    </div>
+  </body>
+</html>
