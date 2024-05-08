@@ -75,6 +75,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // [ 메인메뉴 - 미디어쿼리 ]
   window.addEventListener("resize", menuChg);
+  window.addEventListener("load", menuChg);
   function menuChg() {
     if (window.innerWidth <= 970) {
       document.querySelector(".pc-header").classList.add("-hidden");
@@ -99,83 +100,82 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 // [ 메인메뉴 - 모바일 메뉴리스트 적용 ]
-//   const mobileNav = document.querySelector(".M-nav");
-//   let mobileMenuCode = "";
-//   mobileMenuCode += /*html*/ `<ul class="M-nav-menu">`;
-//   for (let Title in navData) {
-//     mobileMenuCode += /*html*/`
-//     <li class="M-nav-menu-item accordion">
-//       <a href="#">${Title}
-//         <i class="fa-solid fa-chevron-down title-icon"></i>
-//       </a>
-//       <div class="M-nav-menu-item-wrap">
-//         <ul class="M-nav-menu__content">
-//           <li class="M-nav-menu-item__content accordion">
-//             <a href="#">한눈에보기</a>
-//     `;
-//     for (let sTitle in navData[Title]) {
-//       mobileMenuCode += /*html*/`
-//           </li>
-//           <li class="M-nav-menu-item__content accordion">
-//             <a href="#">${sTitle}
-//               <i class="fa-solid fa-chevron-down sTitle-icon title-icon"></i>
-//             </a>
-//             <ul>
-//       `;
-//       for (let list of navData[Title][sTitle]) {
-//         mobileMenuCode += /*html*/`
-//             <li><a href="#">${list}</a></li>
-//           `;
-//       }
-//       mobileMenuCode += /*html*/`
-//             </ul>
-//         `;
-//     }
-//     mobileMenuCode += /*html*/`
-//           </li>
-//         </ul>
-//       </div>
-//     </li>
-// `;
-//   }
-//   mobileMenuCode += /*html*/ `</ul>`;
-//   mobileNav.innerHTML = mobileMenuCode;
+  const mobileNav = document.querySelector(".mobile-nav");
+  let mobileMenuCode = "";
+  mobileMenuCode += /*html*/ `<ul class="menu-list">`;
+  for (let Title in navData) {
+    mobileMenuCode += /*html*/`
+    <li class="list-item accordion">
+      <a href="#">${Title}
+        <i class="fa-solid fa-chevron-down menu-icon__down"></i>
+      </a>
+      <div class="subTitle-wrap">
+        <ul class="subTitle-list">
+          <li class="list-item accordion">
+            <a href="#">한눈에보기</a>
+    `;
+    for (let subTitle in navData[Title]) {
+      mobileMenuCode += /*html*/`
+          </li>
+          <li class="list-item accordion">
+            <a href="#">${subTitle}
+              <i class="fa-solid fa-chevron-down subTitle-icon menu-icon__down "></i>
+            </a>
+            <ol class="subMenu-list">
+      `;
+      for (let list of navData[Title][subTitle]) {
+        mobileMenuCode += /*html*/`
+            <li class="list-item"><a href="#">${list}</a></li>
+          `;
+      }
+      mobileMenuCode += /*html*/`
+            </ol>
+        `;
+    }
+    mobileMenuCode += /*html*/`
+          </li>
+        </ul>
+      </div>
+    </li>
+`;
+  }
+  mobileMenuCode += /*html*/ `</ul>`;
+  mobileNav.innerHTML = mobileMenuCode;
   
-//   const menuItemContent = document.querySelectorAll('.M-nav-menu-item__content ul');
-//   const sTitleIcon = document.querySelectorAll('.sTitle-icon');
-//   menuItemContent.forEach(function(v,i){
-//     // console.log(v.children.length);
-//     // console.log(sTitleIcon[i]);
-//     if( v.children.length !== 0 ){
-//       return
-//     }
-//     else{
-//       sTitleIcon[i].style.display='none'
-//     }
-//   })
+  // [ 모바일 메뉴 - 하위메뉴가 있으면 icon 있기 ]
+  const menuItemContent = document.querySelectorAll('.mobile-nav .subMenu-list');
+  const subTitleIcon = document.querySelectorAll('.sTitle-icon');
+  menuItemContent.forEach(function(ele,idx){
+    if( ele.children.length !== 0 ){
+      return
+    }
+    else{
+      subTitleIcon[idx].style.display='none'
+    }
+  })
 
 
-//   // [ 메인메뉴 - 모바일 bar 클릭시 메뉴보임]
-//   function mobileMenuShow(){
-//     const bar = document.querySelector('.fa-bars');
-//     const mobileMenu = document.querySelector('.M-menu');
-//     const close = document.querySelector('.fa-xmark');
-//     bar.addEventListener('click',()=>{
-//       mobileMenu.style.visibility='visible';
-//       document.querySelector('.M-menu-bg').style.visibility='visible';
-//       document.querySelector('.M-menu-bg').style.opacity='1';
-//       document.querySelector('.M-menu-wrap').style.transform='translateX(0%)';
-//       document.documentElement.classList.add('-fixed')
-//     })
-//     close.addEventListener('click',()=>{
-//       mobileMenu.style.visibility='hidden';
-//       document.querySelector('.M-menu-wrap').style.transform='translateX(120%)';
-//       document.querySelector('.M-menu-bg').style.visibility='hidden';
-//       document.querySelector('.M-menu-bg').style.opacity='0';
-//       document.documentElement.classList.remove('-fixed')
-//     })
-//   }
-//   mobileMenuShow()
+// [ 메인메뉴 - 모바일 bar 클릭시 메뉴보임]
+  function mobileMenuShow(){
+    const mobileBar = document.querySelector('.fa-bars');
+    const mobileMenu = document.querySelector('.M-menu');
+    const mobileClose = document.querySelector('.fa-xmark');
+    mobileBar.addEventListener('click',()=>{
+      mobileMenu.style.visibility='visible';
+      document.querySelector('.M-menu-bg').style.visibility='visible';
+      document.querySelector('.M-menu-bg').style.opacity='1';
+      document.querySelector('.M-menu-wrap').style.transform='translateX(0%)';
+      document.documentElement.classList.add('-fixed')
+    })
+    mobileClose.addEventListener('click',()=>{
+      mobileMenu.style.visibility='hidden';
+      document.querySelector('.M-menu-wrap').style.transform='translateX(120%)';
+      document.querySelector('.M-menu-bg').style.visibility='hidden';
+      document.querySelector('.M-menu-bg').style.opacity='0';
+      document.documentElement.classList.remove('-fixed')
+    })
+  }
+  mobileMenuShow()
 
 //     // [ 메인메뉴 - 모바일 메뉴 아코디언 ]
 //     const acc = document.querySelectorAll('.accordion')

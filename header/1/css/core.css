@@ -420,7 +420,7 @@ header .mobile-header {
   height: 100%;
 }
 
-.mobile-menu__wrap {
+.mobile-header .inner {
   position: fixed;
   top: 0;
   right: 0;
@@ -432,16 +432,16 @@ header .mobile-header {
   z-index: 2;
 }
 
-.M-menu-content {
+.mobile-menu__wrap {
   height: 100%;
   overflow-y: auto;
 }
 
-.M-menu-content.on {
+.mobile-menu__wrap.active {
   overflow: auto;
 }
 
-.M-menu-wrap .close {
+.mobile-menu__wrap .icon-close {
   position: absolute;
   top: 5%;
   left: -15%;
@@ -451,21 +451,21 @@ header .mobile-header {
   color: var(--white);
 }
 
-.M-menu-wrap .search {
+.mobile-menu__wrap .icon-search {
   width: 100%;
   padding: 40px 0;
   text-align: center;
   background-color: var(--gray);
 }
 
-.M-menu-wrap .search input {
+.mobile-menu__wrap .icon-search input {
   width: 60%;
   height: 40px;
   border-radius: 10px;
   border: none;
 }
 
-.M-menu-wrap .search label {
+.mobile-menu__wrap .search label {
   display: inline-block;
   width: 20%;
   height: 40px;
@@ -478,27 +478,27 @@ header .mobile-header {
   line-height: 40px;
 }
 
-.M-nav {
+.mobile-nav {
   width: 100%;
 }
 
-.M-nav-menu-item {
+.mobile-menu__wrap .menu-list .list-item{
   padding: 0 20px;
   position: relative;
 }
 
-.M-nav-menu-item:first-child {
+.mobile-menu__wrap .menu-list .list-item:first-child {
   background-color: var(--gray);
 }
 
-.M-nav-menu-item > a {
+.mobile-menu__wrap .menu-list .list-item > a {
   font-size: var(--font-size-L);
   display: block;
   padding: 20px 0;
   position: relative;
 }
 
-.M-nav-menu-item i {
+.mobile-menu__wrap .menu-list .list-item .menu-icon__down {
   color: var(--white);
   font-size: 30px;
   position: absolute;
@@ -508,41 +508,41 @@ header .mobile-header {
   cursor: pointer;
 }
 
-.M-nav-menu-item-wrap {
+.mobile-menu__wrap .subTitle-wrap {
   height: 0;
   overflow: hidden;
   transition: all .4s;
   opacity: 0;
 }
 
-.M-nav-menu-item-wrap.on {
+.mobile-menu__wrap .subTitle-wrap.active {
   height: auto;
   overflow: visible;
   opacity: 1;
 }
 
-.M-nav-menu-item__content {
+.mobile-menu__wrap .subTitle-list {
   padding-left: 20px;
 }
 
-.M-nav-menu-item__content ul {
+.mobile-menu__wrap .subMenu-list {
   height: 0;
   overflow: hidden;
   transition: all 1s;
   opacity: 0;
 }
 
-.M-nav-menu-item__content ul.on {
+.mobile-menu__wrap .subMenu-list.active {
   height: auto;
   overflow: visible;
   opacity: 1;
 }
 
-.M-nav-menu-item__content li {
+.mobile-menu__wrap .subMenu-list .list-item {
   padding-left: 20px;
 }
 
-.M-nav-menu-item__content a {
+.mobile-menu__wrap .subMenu-list .list-item a {
   display: block;
   font-size: var(--font-size-L);
   padding: 20px 0;
@@ -551,7 +551,7 @@ header .mobile-header {
   position: relative;
 }
 
-.M-nav-menu-item__content i {
+.mobile-menu__wrap .subMenu-list .list-item .menu-icon__down {
   color: var(--lightgray);
   font-size: 30px;
   line-height: 20px;
