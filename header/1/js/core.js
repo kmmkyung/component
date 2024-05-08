@@ -144,7 +144,7 @@ window.addEventListener("DOMContentLoaded", function () {
   
   // [ 모바일 메뉴 - 하위메뉴가 있으면 icon 있기 ]
   const menuItemContent = document.querySelectorAll('.mobile-nav .subMenu-list');
-  const subTitleIcon = document.querySelectorAll('.sTitle-icon');
+  const subTitleIcon = document.querySelectorAll('.subTitle-icon');
   menuItemContent.forEach(function(ele,idx){
     if( ele.children.length !== 0 ){
       return
@@ -158,20 +158,20 @@ window.addEventListener("DOMContentLoaded", function () {
 // [ 메인메뉴 - 모바일 bar 클릭시 메뉴보임]
   function mobileMenuShow(){
     const mobileBar = document.querySelector('.fa-bars');
-    const mobileMenu = document.querySelector('.M-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
     const mobileClose = document.querySelector('.fa-xmark');
     mobileBar.addEventListener('click',()=>{
       mobileMenu.style.visibility='visible';
-      document.querySelector('.M-menu-bg').style.visibility='visible';
-      document.querySelector('.M-menu-bg').style.opacity='1';
-      document.querySelector('.M-menu-wrap').style.transform='translateX(0%)';
+      document.querySelector('.mobile-menu__bg').style.visibility='visible';
+      document.querySelector('.mobile-menu__bg').style.opacity='1';
+      document.querySelector('.mobile-menu__wrap').style.transform='translateX(0%)';
       document.documentElement.classList.add('-fixed')
     })
     mobileClose.addEventListener('click',()=>{
       mobileMenu.style.visibility='hidden';
-      document.querySelector('.M-menu-wrap').style.transform='translateX(120%)';
-      document.querySelector('.M-menu-bg').style.visibility='hidden';
-      document.querySelector('.M-menu-bg').style.opacity='0';
+      document.querySelector('.mobile-menu__wrap').style.transform='translateX(120%)';
+      document.querySelector('.mobile-menu__bg').style.visibility='hidden';
+      document.querySelector('.mobile-menu__bg').style.opacity='0';
       document.documentElement.classList.remove('-fixed')
     })
   }
