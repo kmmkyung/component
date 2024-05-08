@@ -124,6 +124,10 @@ header .top-menu .search i {
   display: flex;
 }
 
+.nav .menu-list>.list-item:first-child {
+  display: none;
+}
+
 .nav .menu-list .list-item__title {
   padding: 0px 20px;
   font-size: var(--font-size-M);
@@ -482,12 +486,12 @@ header .mobile-header {
   width: 100%;
 }
 
-.mobile-menu__wrap .menu-list .list-item{
+.mobile-menu__wrap .menu-list>.list-item{
   padding: 0 20px;
   position: relative;
 }
 
-.mobile-menu__wrap .menu-list .list-item:first-child {
+.mobile-menu__wrap .menu-list>.list-item:first-child {
   background-color: var(--gray);
 }
 

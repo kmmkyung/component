@@ -82,8 +82,8 @@ window.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".mobile-header").classList.remove("-hidden");
     }
     else {
-      document.querySelector(".mobile-header").classList.remove("-hidden");
-      document.querySelector(".pc-header").classList.add("-hidden");
+      document.querySelector(".pc-header").classList.remove("-hidden");
+      document.querySelector(".mobile-header").classList.add("-hidden");
     }
   }
   
@@ -154,7 +154,6 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   })
 
-
 // [ 메인메뉴 - 모바일 bar 클릭시 메뉴보임]
   function mobileMenuShow(){
     const mobileBar = document.querySelector('.fa-bars');
@@ -164,12 +163,12 @@ window.addEventListener("DOMContentLoaded", function () {
       mobileMenu.style.visibility='visible';
       document.querySelector('.mobile-menu__bg').style.visibility='visible';
       document.querySelector('.mobile-menu__bg').style.opacity='1';
-      document.querySelector('.mobile-menu__wrap').style.transform='translateX(0%)';
+      document.querySelector('.mobile-menu .inner').style.transform='translateX(0%)';
       document.documentElement.classList.add('-fixed')
     })
     mobileClose.addEventListener('click',()=>{
       mobileMenu.style.visibility='hidden';
-      document.querySelector('.mobile-menu__wrap').style.transform='translateX(120%)';
+      document.querySelector('.mobile-menu .inner').style.transform='translateX(120%)';
       document.querySelector('.mobile-menu__bg').style.visibility='hidden';
       document.querySelector('.mobile-menu__bg').style.opacity='0';
       document.documentElement.classList.remove('-fixed')
@@ -179,8 +178,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
 //     // [ 메인메뉴 - 모바일 메뉴 아코디언 ]
 //     const acc = document.querySelectorAll('.accordion')
-//     // console.log(acc);
-    
 //     for( i=0; i < acc.length; i++ ){
 //       acc[i].onclick = function(e){
 //         e.stopPropagation();
