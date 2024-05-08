@@ -93,9 +93,17 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
 // [ 메인메뉴 - 미디어쿼리 ]
-  window.addEventListener("resize", menuChg);
-  window.addEventListener("load", menuChg);
-  function menuChg() {
+  // resize 초기화 및 셋팅
+  let setTime ;
+  window.addEventListener("resize", function(){
+    clearTimeout(setTime) // 이전에 실행한 menuChange함수 초기화
+    setTime = setTimeout(menuChange,200) // resize할 경우 2초마다 함수 실행
+  });
+
+  window.addEventListener("load", menuChange);
+  function menuChange() {
+    console.log('dsf');
+    
     if (window.innerWidth <= 970) {
       document.querySelector(".pc-header").classList.add("-hidden");
       document.querySelector(".mobile-header").classList.remove("-hidden");
