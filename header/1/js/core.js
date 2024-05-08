@@ -8,8 +8,8 @@ window.addEventListener("DOMContentLoaded", function () {
   
   // [ 메인메뉴 - Logo ]
   // 로고 넣기
-  const logo = document.querySelector('.logo')
-  const logoSvg = document.querySelector('.logo-svg')
+  const logo = document.querySelector('.pc-header .logo')
+  const logoSvg = document.querySelector('.pc-header .logo-svg')
   logoSvg.innerHTML = svgLogoData;
   // 로고 클릭시 메인페이지 이동
   logo.addEventListener('click',function(){
@@ -86,7 +86,19 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
   
-//   // [ 메인메뉴 - 모바일 메뉴리스트 적용 ]
+  // [ 모바일메뉴 - LOGO ]
+  const mobileLogo = document.querySelector('.mobile-header .logo')
+  const mobileLogoSvg = document.querySelector('.mobile-header .logo-svg')
+  
+    // 로고 넣기
+  mobileLogoSvg.innerHTML = svgLogoData;
+  // 로고 클릭시 메인페이지 이동
+  mobileLogo.addEventListener('click',function(){
+    location.href= 'index.html';
+  })
+
+
+// [ 메인메뉴 - 모바일 메뉴리스트 적용 ]
 //   const mobileNav = document.querySelector(".M-nav");
 //   let mobileMenuCode = "";
 //   mobileMenuCode += /*html*/ `<ul class="M-nav-menu">`;
