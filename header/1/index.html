@@ -45,33 +45,86 @@
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
-          <!-- main메뉴 -->
-          <!-- <nav class="main-menu"> -->
+          <!-- PC 메뉴 -->
+          <nav class="nav">
             <!-- 메뉴 -->
             <!-- <ul class="menu-list"> -->
-              <!-- 메뉴 타이틀  -->
+              <!-- 메뉴 리스트  -->
               <!-- <li class="list-item"> -->
-                <!-- <a href="#"> -->
-                  <!-- <div class="list-item__title">MENU</div> -->
-                <!-- </a> -->
-                <!-- 서브메뉴타이틀 -->
-                <!-- <div class="sub-menu"> -->
-                  <!-- <ul class="subMenu-list"> -->
+                <!-- 메뉴타이틀 -->
+                <!-- <a href="#">TITLE</a>-->
+                <!-- <div class="subTitle-list__wrap"> -->
+                  <!-- <ul class="subTitle-list"> -->
                     <!-- <li class="list-item"> -->
-                    <!-- <h4>SUBTITLE</h4> -->
-            <!-- 하위메뉴 -->
-            <!-- <ol> -->
-            <!-- <li>list</li> -->
-            <!-- </ol> -->
-            <!-- </li> -->
+                      <!-- <h4 class="list-item__subTitle">SUBTITLE</h4> -->
+                      <!-- 하위메뉴 -->
+                        <!-- <ol class="subMenu-list"> -->
+                          <!-- <li class="list-item">list</li> -->
+                        <!-- </ol> -->
+                      <!-- </li> -->
+                  <!-- </ul> -->
+                <!-- </div> -->
+              <!-- </li> -->
             <!-- </ul> -->
-            <!-- </div> -->
-            <!-- </li> -->
-            <!-- </ul> -->
-          <!-- </nav> -->
+          </nav>
+        </div>
+      </div>
+      <!-- MOBILE 메뉴 -->
+      <div class="mobile-header">
+        <div class="mobile-logo">
+          <!-- logo -->
+          <a href="#" class="logo">
+            <!-- 로고 img를 넣을 경우 -->
+            <!-- <img src="./images/logo.png" alt="logo" /> -->
+            <!-- 로고 svg로 넣을 경우 -->
+            <div class="logo-svg"></div>
+          </a>
+        </div>
+        <div class="icon">
+          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-location-dot"></i>
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="mobile-menu">
+          <div class="mobile-menu__bg"></div>
+          <div class="inner">
+            <div class="mobile-menu-wrap">
+              <div class="icon-close">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+              <div class="icon-search">
+                <input type="text" id="search" />
+                <label for="search">Search</label>
+              </div>
+              <nav class="mobile-nav">
+                <ul class="menu-list">
+                  <li class="list-item">
+                    <a href="#">coffee
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <div class="M-nav-menu-item-wrap">
+                      <ul class="M-nav-menu__content">
+                        <li class="M-nav-menu-item__content">
+                          <a href="#">한눈에보기</a>
+                        </li>
+                        <li class="M-nav-menu-item__content">
+                          <a href="#">커피
+                            <i class="fa-solid fa-chevron-down"></i>
+                          </a>
+                          <ul>
+                            <li><a href="#">스타벅스원두</a></li>
+                            <li><a href="#">스타벅스비아</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
     </header>
-
   </body>
 </html>

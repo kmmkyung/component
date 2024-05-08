@@ -113,35 +113,32 @@ header .top-menu .search i {
 }
 
 /* main메뉴 */
-.main-menu {
+.nav {
   height: 60px;
   position: absolute;
   right: 10px;
   bottom: 0;
 }
 
-.main-menu .menu {
+.nav .menu-list {
   display: flex;
 }
 
-.main-menu .menu-item:first-child {
-  display: none;
-}
-
-.main-menu .menu-item .menu-item__name {
+.nav .menu-list .list-item__title {
   padding: 0px 20px;
   font-size: var(--font-size-M);
   height: 100%;
   line-height: 60px;
+  display: block;
 }
 
-.main-menu .menu-item:hover .menu-item__name {
+.nav .list-item:hover .list-item__title {
   background-color: var(--menubg);
   color: var(--menufont);
   text-decoration: underline;
 }
 
-.main-menu .menu-item__contents {
+.nav .subTitle-list__wrap {
   width: 100%;
   height: 0;
   position: fixed;
@@ -151,36 +148,37 @@ header .top-menu .search i {
   overflow: hidden;
 }
 
-.main-menu .contents-menu {
+.nav .subTitle-list {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px 10px;
   display: flex;
 }
 
-.main-menu .contents-menu .contents-menu__list {
+.nav .subTitle-list>.list-item {
   width: 220px;
   padding-bottom: 40px;
 }
 
-.main-menu .contents-menu .contents-menu__list h4 {
+.nav .subTitle-list .list-item__subTitle {
   font-size: var(--font-size-M);
   padding: 20px 0px 10px;
   color: var(--white);
 }
 
-.main-menu .contents-menu .contents-menu__list ul > li {
+.nav .subTitle-list .list-item {
   font-size: var(--font-size-S);
   padding: 5px 0px;
   color: var(--gray);
 }
 
-.main-menu .contents-menu .contents-menu__list h4:hover,
-.main-menu .contents-menu .contents-menu__list ul > li:hover {
+.nav .subTitle-list .list-item__subTitle:hover,
+.nav .subMenu-list .list-item:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
+/* 
 footer {
   width: 100%;
   height: 100%;
@@ -245,9 +243,9 @@ footer .inner {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-}
+} */
 
-.sub-menu .sub-menu__item {
+/* .sub-menu .sub-menu__item {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -310,7 +308,7 @@ footer .button a {
 
 footer a:hover {
   text-decoration: underline;
-}
+} */
 
 @media screen and (max-width: 930px) {
   .footer-menu .menu {

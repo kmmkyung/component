@@ -11,81 +11,80 @@ window.addEventListener("DOMContentLoaded", function () {
   const logo = document.querySelector('.logo')
   const logoSvg = document.querySelector('.logo-svg')
   logoSvg.innerHTML = svgLogoData;
-
   // 로고 클릭시 메인페이지 이동
   logo.addEventListener('click',function(){
     location.href= 'index.html';
   })
 
   // [ 메인메뉴 - 메뉴리스트 적용 ]
-//   const nav = document.querySelector(".main-menu");
-//   let mainMenuCode = "";
-//   mainMenuCode += `<ul class="menu">`;
-//   // 메뉴 타이틀 title=COFFEE,MENU,STORE...
-//   for (let title in navData) {
-//     mainMenuCode += /*html*/`
-//       <li class="menu-item">
-//         <a href="#">
-//           <div class="menu-item__name">${title}</div>
-//         </a>
-//         <div class="menu-item__contents -hidden">
-//         <ul class="contents-menu">
-//         `;
-//     // 서브메뉴타이틀 sTitle=커피,커피이야기,스타벅스 리저브...
-//     for (let sTitle in navData[title]) {
-//       mainMenuCode += /*html*/`
-//           <li class="contents-menu__list">
-//             <h4>${sTitle}</h4>
-//             <ul>
-//       `;
-//       // 하위메뉴
-//       for (let list of navData[title][sTitle]) {
-//         mainMenuCode += /*html*/`
-//               <li>${list}</li>
-//               `;
-//       }
-//       mainMenuCode += /*html*/`
-//             </ul>
-//           </li>
-//             `;
-//     }
-//     mainMenuCode += /*html*/`
-//         </ul>
-//       </div>
-//     </li>
-//     `;
-//   }
-//   mainMenuCode += /*html*/ `</ul>`;
-//   nav.innerHTML = mainMenuCode;
+  const nav = document.querySelector(".nav");
+  let mainMenuCode = "";
+  mainMenuCode += `<ul class="menu-list">`;
+  // 메뉴 타이틀 title=COFFEE,MENU,STORE...
+  for (let title in navData) {
+    mainMenuCode += /*html*/`
+      <li class="list-item">
+        <a class="list-item__title" href="#">
+          ${title}
+        </a>
+        <div class="subTitle-list__wrap -hidden">
+        <ul class="subTitle-list">
+        `;
+    // 서브메뉴타이틀 subTitle=커피,커피이야기,스타벅스 리저브...
+    for (let subTitle in navData[title]) {
+      mainMenuCode += /*html*/`
+          <li class="list-item">
+            <h4 class="list-item__subTitle">${subTitle}</h4>
+            <ol class="subMenu-list">
+      `;
+      // 하위메뉴
+      for (let list of navData[title][subTitle]) {
+        mainMenuCode += /*html*/`
+              <li class="list-item">${list}</li>
+              `;
+      }
+      mainMenuCode += /*html*/`
+            </ol>
+          </li>
+            `;
+    }
+    mainMenuCode += /*html*/`
+        </ul>
+      </div>
+    </li>
+    `;
+  }
+  mainMenuCode += /*html*/ `</ul>`;
+  nav.innerHTML = mainMenuCode;
 
-//   // [ 메인메뉴 - 오버시 보이게 하기 ]
-//   const title = document.querySelectorAll(".menu-item");
-//   title.forEach((v, i) => {
-//     const menuContainer = document.querySelectorAll(".menu-item__contents");
-//     const menuUl = document.querySelectorAll(".contents-menu");
-//     v.addEventListener("mouseenter", function () {
-//       menuContainer[i].classList.remove("-hidden");
-//       let vH = menuUl[i].clientHeight;
-//       menuContainer[i].style.height = vH + "px";
-//     });
-//     v.addEventListener("mouseleave", function () {
-//       menuContainer[i].classList.add("-hidden");
-//       menuContainer[i].style.height = 0;
-//     });
-//   });
+  // [ 메인메뉴 - 오버시 보이게 하기 ]
+  const title = document.querySelectorAll(".nav > .menu-list > .list-item");
+  title.forEach((ele, idx) => {
+    const menuWrap = document.querySelectorAll(".subTitle-list__wrap");
+    const menuUl = document.querySelectorAll(".subTitle-list");
+    ele.addEventListener("mouseenter", function () {
+      menuWrap[idx].classList.remove("-hidden");
+      let vH = menuUl[idx].clientHeight;
+      menuWrap[idx].style.height = vH + "px";
+    });
+    ele.addEventListener("mouseleave", function () {
+      menuWrap[idx].classList.add("-hidden");
+      menuWrap[idx].style.height = 0;
+    });
+  });
 
-//   // [ 메인메뉴 - 미디어쿼리 ]
-//   function menuChg() {
-//     if (window.innerWidth <= 970) {
-//       document.querySelector(".DT-header").classList.add("-hidden");
-//       document.querySelector(".M-header").classList.remove("-hidden");
-//     } else {
-//       document.querySelector(".DT-header").classList.remove("-hidden");
-//       document.querySelector(".M-header").classList.add("-hidden");
-//     }
-//   }
-//   window.addEventListener("resize", menuChg);
-//   menuChg()
+  // [ 메인메뉴 - 미디어쿼리 ]
+  window.addEventListener("resize", menuChg);
+  function menuChg() {
+    if (window.innerWidth <= 970) {
+      document.querySelector(".pc-header").classList.add("-hidden");
+      document.querySelector(".mobile-header").classList.remove("-hidden");
+    }
+    else {
+      document.querySelector(".mobile-header").classList.remove("-hidden");
+      document.querySelector(".pc-header").classList.add("-hidden");
+    }
+  }
   
 //   // [ 메인메뉴 - 모바일 메뉴리스트 적용 ]
 //   const mobileNav = document.querySelector(".M-nav");
