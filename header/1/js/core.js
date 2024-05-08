@@ -5,6 +5,25 @@ import footerData from "../data/footerData.js";
 
 // 시작 ---
 window.addEventListener("DOMContentLoaded", function () {
+
+  // [ 탑메뉴 - 서치아이콘 ]
+  const searchInput = document.querySelector(".top-menu .search input");
+  const searchIcon = document.querySelector(".top-menu .search i");
+  searchInput.addEventListener("focus", function () {
+    searchIcon.classList.add("-opacity");
+    searchInput.setAttribute("placeholder", " 검색어를 입력해 주세요");
+  });
+  searchInput.addEventListener("blur", function () {
+    searchIcon.classList.remove("-opacity");
+    searchInput.setAttribute("placeholder", "");
+    searchInput.value = "";
+  });
+  // enter시 내용 삭제
+  searchInput.addEventListener("keypress", function (e) {
+    if (e.keyCode == 13) {
+      searchInput.value = "";
+    }
+  });
   
   // [ 메인메뉴 - Logo ]
   // 로고 넣기
@@ -57,7 +76,7 @@ window.addEventListener("DOMContentLoaded", function () {
   mainMenuCode += /*html*/ `</ul>`;
   nav.innerHTML = mainMenuCode;
 
-  // [ 메인메뉴 - 오버시 보이게 하기 ]
+// [ 메인메뉴 - 오버시 보이게 하기 ]
   const title = document.querySelectorAll(".nav > .menu-list > .list-item");
   title.forEach((ele, idx) => {
     const menuWrap = document.querySelectorAll(".subTitle-list__wrap");
@@ -73,7 +92,7 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // [ 메인메뉴 - 미디어쿼리 ]
+// [ 메인메뉴 - 미디어쿼리 ]
   window.addEventListener("resize", menuChg);
   window.addEventListener("load", menuChg);
   function menuChg() {
@@ -87,11 +106,10 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
   
-  // [ 모바일메뉴 - LOGO ]
+// [ 모바일메뉴 - LOGO ]
   const mobileLogo = document.querySelector('.mobile-header .logo')
   const mobileLogoSvg = document.querySelector('.mobile-header .logo-svg')
-  
-    // 로고 넣기
+  // 로고 넣기
   mobileLogoSvg.innerHTML = svgLogoData;
   // 로고 클릭시 메인페이지 이동
   mobileLogo.addEventListener('click',function(){
@@ -103,10 +121,10 @@ window.addEventListener("DOMContentLoaded", function () {
   const mobileNav = document.querySelector(".mobile-nav");
   let mobileMenuCode = "";
   mobileMenuCode += /*html*/ `<ul class="menu-list">`;
-  for (let Title in navData) {
+  for (let title in navData) {
     mobileMenuCode += /*html*/`
     <li class="list-item accordion">
-      <a href="#">${Title}
+      <a href="#">${title}
         <i class="fa-solid fa-chevron-down menu-icon__down"></i>
       </a>
       <div class="subTitle-wrap">
@@ -114,7 +132,7 @@ window.addEventListener("DOMContentLoaded", function () {
           <li class="list-item accordion">
             <a href="#">한눈에보기</a>
     `;
-    for (let subTitle in navData[Title]) {
+    for (let subTitle in navData[title]) {
       mobileMenuCode += /*html*/`
           </li>
           <li class="list-item accordion">
@@ -123,7 +141,7 @@ window.addEventListener("DOMContentLoaded", function () {
             </a>
             <ol class="subMenu-list">
       `;
-      for (let list of navData[Title][subTitle]) {
+      for (let list of navData[title][subTitle]) {
         mobileMenuCode += /*html*/`
             <li class="list-item"><a href="#">${list}</a></li>
           `;
@@ -143,7 +161,7 @@ window.addEventListener("DOMContentLoaded", function () {
   mobileNav.innerHTML = mobileMenuCode;
   
   // [ 모바일 메뉴 - 하위메뉴가 있으면 icon 있기 ]
-  const menuItemContent = document.querySelectorAll('.mobile-nav .subMenu-list');
+  const menuItemContent = document.querySelectorAll('.mobile-nav .subMenu-list');  
   const subTitleIcon = document.querySelectorAll('.subTitle-icon');
   menuItemContent.forEach(function(ele,idx){
     if( ele.children.length !== 0 ){
@@ -159,88 +177,33 @@ window.addEventListener("DOMContentLoaded", function () {
     const mobileBar = document.querySelector('.fa-bars');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileClose = document.querySelector('.fa-xmark');
+    const mobileBg = document.querySelector('.mobile-menu__bg')
     mobileBar.addEventListener('click',()=>{
       mobileMenu.style.visibility='visible';
-      document.querySelector('.mobile-menu__bg').style.visibility='visible';
-      document.querySelector('.mobile-menu__bg').style.opacity='1';
+      mobileBg.style.visibility='visible';
+      mobileBg.style.opacity='1';
       document.querySelector('.mobile-menu .inner').style.transform='translateX(0%)';
       document.documentElement.classList.add('-fixed')
     })
     mobileClose.addEventListener('click',()=>{
       mobileMenu.style.visibility='hidden';
       document.querySelector('.mobile-menu .inner').style.transform='translateX(120%)';
-      document.querySelector('.mobile-menu__bg').style.visibility='hidden';
-      document.querySelector('.mobile-menu__bg').style.opacity='0';
+      mobileBg.style.visibility='hidden';
+      mobileBg.style.opacity='0';
       document.documentElement.classList.remove('-fixed')
     })
   }
   mobileMenuShow()
 
-//     // [ 메인메뉴 - 모바일 메뉴 아코디언 ]
-//     const acc = document.querySelectorAll('.accordion')
-//     for( i=0; i < acc.length; i++ ){
-//       acc[i].onclick = function(e){
-//         e.stopPropagation();
-//         panel = this.lastElementChild;
-//         panel.classList.toggle('on')
-//         this.querySelector('.title-icon').classList.toggle('fa-chevron-up')
-//         this.querySelector('.title-icon').classList.toggle('fa-chevron-down')
-//       }
-//     }
-
-//   // [ 서브메뉴 - 서치아이콘 ]
-//   const searchInput = document.querySelector(".search input");
-//   const searchIcon = document.querySelector(".search i");
-//   searchInput.addEventListener("focus", function () {
-//     searchIcon.classList.add("-opacity");
-//     searchInput.setAttribute("placeholder", " 검색어를 입력해 주세요");
-//   });
-//   searchInput.addEventListener("blur", function () {
-//     searchIcon.classList.remove("-opacity");
-//     searchInput.setAttribute("placeholder", "");
-//     searchInput.value = "";
-//   });
-//   // enter시 내용 삭제
-//   searchInput.addEventListener("keypress", function (e) {
-//     if (e.keyCode == 13) {
-//       searchInput.value = "";
-//     }
-//   });
-
-//   // [푸터 메뉴리스트 적용]
-//   const footerNav = document.querySelector(".footer-menu");
-//   let footerMenuCode = "";
-//   footerMenuCode += `<ul class="menu">`;
-//   for (let title in footerData) {
-//     footerMenuCode += `
-//     <li class="menu-item">
-//     <h4>${title}</h4>
-//       <ol> 
-//     `;
-//     for (let list of footerData[title]) {
-//       footerMenuCode += `
-//         <li><a href="#">${list}</a></li>
-//       `;
-//     }
-//     footerMenuCode += `
-//       </ol>
-//     </li>
-//     `;
-//   }
-//   footerMenuCode += `</ul>`;
-//   footerNav.innerHTML = footerMenuCode;
-  
-  
-//   // [푸터 메뉴리스트 적용 - 아코디언]
-//   function footerNavShow(){
-//     const footerNav = document.querySelectorAll('.footer-menu .menu-item')
-//     console.log(footerNav);
-    
-//     footerNav.forEach(function(v){
-//       v.addEventListener('click',()=>{
-//         v.classList.toggle('on')
-//       })
-//     })
-//   }
-//   footerNavShow()
+// [ 메인메뉴 - 모바일 메뉴 아코디언 ]
+  const acc = document.querySelectorAll('.accordion')
+  for( let i = 0; i < acc.length; i++ ){
+    acc[i].onclick = function(e){
+      e.stopPropagation();
+      let panel = this.lastElementChild;
+      panel.classList.toggle('active')
+      this.querySelector('.menu-icon__down').classList.toggle('fa-chevron-up')
+      this.querySelector('.menu-icon__down').classList.toggle('fa-chevron-down')
+    }
+  }
 });
