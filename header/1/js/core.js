@@ -1,7 +1,6 @@
 // data 불러오기
 import svgLogoData from "../data/logoSvgData.js";
 import navData from "../data/navData.js";
-import footerData from "../data/footerData.js";
 
 // 시작 ---
 window.addEventListener("DOMContentLoaded", function () {
@@ -101,6 +100,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   window.addEventListener("load", menuChange);
+  
   function menuChange() {    
     if (window.innerWidth <= 970) {
       document.querySelector(".pc-header").classList.add("-hidden");
