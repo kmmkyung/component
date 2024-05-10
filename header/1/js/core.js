@@ -101,9 +101,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   window.addEventListener("load", menuChange);
-  function menuChange() {
-    console.log('dsf');
-    
+  function menuChange() {    
     if (window.innerWidth <= 970) {
       document.querySelector(".pc-header").classList.add("-hidden");
       document.querySelector(".mobile-header").classList.remove("-hidden");
