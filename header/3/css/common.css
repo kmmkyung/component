@@ -14,14 +14,9 @@
   border-bottom: 1px solid #fff;
 }
 
-.nav.navActive{
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
-}
-
 .nav-wrap{
   position: relative;
-  max-width: 1300px;
+  max-width: 1200px;
   height: 100%;
   padding: 0 15px;
   margin: 0 auto;
@@ -30,13 +25,88 @@
   justify-content: space-between;
 }
 
+.pcMenu-1{
+  flex-basis: 50%;
+}
+
+.pcMenu-1 .menu-list{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.pcMenu-1 .menu-list .list-item{
+  position: relative;
+}
+
+.pcMenu-1 .menu-list>.list-item a{
+  font-size: 15px;
+  display: block;
+  white-space: nowrap;
+}
+
+.pcMenu-1 .menu-list .list-item .subMenu-wrap{
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+
 .logo{
   position: relative;
   max-width: 325px;
   width: 25%;
+  text-align: center;
 }
 
 .logo-title{
+  height: 0;
+  overflow: hidden;
+}
+
+.pcMenu-2{
+  flex-basis: 50%;
+}
+
+.pcMenu-2 .menu-list {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+}
+
+.pcMenu-2 .menu-list .list-item{
+  position: relative;
+}
+
+.pcMenu-2 .menu-list>.list-item a{
+  font-size: var(--font-size-s);
+  display: block;
+  white-space: nowrap;
+}
+
+.pcMenu-2 .menu-list .list-item .subMenu-wrap{
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+
+.icon{
+  font-size: 24px;
+}
+
+.icon a{
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.subMenu-list .list-item a{
+  display: block;
+  margin-top: 20px;
+}
+
+.subMenu-wrap .subMenu-list{
   height: 0;
   overflow: hidden;
 }
